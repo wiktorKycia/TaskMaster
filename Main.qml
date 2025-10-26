@@ -14,6 +14,6 @@ Window {
         width: parent.width
         height: parent.height
         */
-        initialItem: Qt.resolvedUrl("")
+        initialItem: Qt.resolvedUrl("qrc:/LoadPage.qml")
     }
 }
