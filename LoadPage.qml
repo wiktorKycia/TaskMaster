@@ -8,6 +8,7 @@ Item {
     Rectangle{
         id:bgRec
         anchors.fill: parent
+        color: "#2C3E50"
     }
 }
 
