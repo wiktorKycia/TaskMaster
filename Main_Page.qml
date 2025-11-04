@@ -1,0 +1,74 @@
+import QtQuick 2.15
+import QtQuick.Controls 2.12
+
+Item {
+    width: parent.width
+    height: parent.height
+
+    Rectangle{
+        id:bgRec
+        anchors.fill: parent
+        color: "#2C3E50"
+    }
+    ListView{
+        id: listview
+        anchors.fill: parent
+        header: Item{
+            id: headerListView
+            width: parent.width
+            height: 50
+
+            Label {
+                anchors.centerIn: parent
+                text: "Task-Master"
+                color: "black"
+            }
+        }
+        headerPositioning: ListView.OverlayHeader
+        model: ListModel {
+            id: myListModel
+        }
+        delegate: MouseArea {
+            id: myDelegate
+            width: parent.width
+            height: 50
+
+            Label {
+                id: title
+                text: titleText
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.leftMargin: 20
+            }
+            Label {
+                id: date
+                text: dateText
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.rightMargin: 20
+            }
+        }
+        footer: Item {
+            id: footerListView
+            width: parent.width
+            height: 50
+
+            RoundButton {
+                id: addTaskButton
+                width: 40
+                height: 40
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.right: parent.right
+                anchors.rightMargin: 10
+                onClicked: {
+                    addTask_Drawer.open()
+                }
+            }
+        }
+    }
+
+    AddTask_Drawer {
+        id: addTask_Drawer
+    }
+}
+

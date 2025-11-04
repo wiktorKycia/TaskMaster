@@ -14,6 +14,9 @@ Window {
         width: parent.width
         height: parent.height
         */
-        initialItem: Qt.resolvedUrl("qrc:/LoadPage.qml")
+        initialItem: Qt.resolvedUrl("./LoadPage.qml")
+    }
+    Component.onCompleted: {
+        contentFrame.replace("./Main_Page.qml")
     }
 }
