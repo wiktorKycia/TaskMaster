@@ -67,6 +67,7 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.right: parent.right
                 anchors.rightMargin: 10
+                text: "+"
                 onClicked: {
                     addTask_Drawer.open()
                 }
