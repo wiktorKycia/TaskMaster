@@ -19,6 +19,7 @@ Drawer {
     }
     TextField {
         id: titleInput
+        width: parent.width/2
         placeholderText: qsTr("Your task")
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
@@ -34,7 +35,7 @@ Drawer {
         TextField {
             id: dateInput
             height: parent.height
-            width: parent.width/2.5
+            width: parent.width/3
             anchors.left: parent.left
             placeholderText: "0000-00-00"
         }
@@ -44,6 +45,25 @@ Drawer {
             width: parent.width/3
             anchors.right: parent.right
             placeholderText: "00:00"
+        }
+    }
+    RoundButton {
+        id: submitButton
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: parent.top
+        anchors.topMargin: 200
+        text: "Submit"
+        width: 200
+        onClicked: {
+            if(titleInput.text !== "" &&
+                dateInput.text !== "" &&
+                timeInput.text !== ""){
+                myListModel.append({"titleText": titleInput.text, "dateText": dateInput.text + " | " + timeInput.text} )
+                titleInput.clear()
+                dateInput.clear()
+                timeInput.clear()
+                addTask_Drawer.close()
+            }
         }
     }
 }

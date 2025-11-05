@@ -33,12 +33,18 @@ Item {
             width: parent.width
             height: 50
 
+            onPressAndHold: {
+                listview.currentIndex = index
+                myListModel.remove(listview.currentIndex)
+            }
+
             Label {
                 id: title
                 text: titleText
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.leftMargin: 20
+                color: "white"
             }
             Label {
                 id: date
@@ -46,6 +52,7 @@ Item {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.rightMargin: 20
+                color: "white"
             }
         }
         footer: Item {
